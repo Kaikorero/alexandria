@@ -1,0 +1,131 @@
+%! TEX TS-program = xelatex
+\documentclass[a4paper]{scrreprt}
+
+%Codierung Xetex
+%-------------------------------------
+\usepackage{pifont} % Wirklich schlimme Sonderzeichen...
+\usepackage{ucharclasses, fontspec}
+        \setmainfont[SmallCapsFont={GFSDidot-Regular},
+                  SmallCapsFeatures={Letters=SmallCaps}]{Noto Serif}
+        \setsansfont{Noto Sans}
+        \setmonofont{Noto Sans Mono}
+
+%Fallback
+\newfontfamily{\defaultfont}{Noto Serif}
+\newfontfamily{\akrophon}{Quivira}
+\newfontfamily\hebrewfont{Noto Serif Hebrew}[Script=Hebrew]
+
+\setTransitionFrom{AncientGreekNumbers}{\defaultfont} % UTF-Block-Name
+\setTransitionTo{AncientGreekNumbers}{\akrophon}
+%-------------------------------------
+
+%Abbildungen
+%--------------------------------------
+\usepackage{graphicx}
+\graphicspath{ {./img} }
+\usepackage{wrapfig}    % Für das Einbetten von Bildern
+\usepackage{chronology} % Für einen Zeitstrahl
+\usepackage{rotating}   % Zum rotieren von Bildern
+%--------------------------------------
+
+%Lorem Ipsum und Kommentare
+%--------------------------------------
+\usepackage{blindtext}
+\usepackage{verbatim}
+%--------------------------------------
+
+%Mehrspaltigkeit, Tabellen und anderes Layout
+%--------------------------------------
+\usepackage{paracol}            % Mehrere Spalten mit unterschiedlichem Inhalt
+	\footnotelayout{m}                  % Fußnoten bei Paracol merged mit den anderen!
+\usepackage[protrusion]{microtype}   % Verbesserter Randausgleich
+	\emergencystretch=1.5em         % Bessere Zeilenumbrüche (Fehler werden weiter ausgegeben)
+\usepackage{verse}              %Umgebung für Gedichte
+    	\setlength{\leftmargini}{0em}       % Linker Rand Abstand (Nummerierung)
+    	\verselinenumfont{\tiny\rmfamily}   % Größe und Aussehen der Nummerierung
+\usepackage[modulo]{lineno}     % Zeilennummerierung
+\usepackage[all]{nowidow}       % Keine Schusterjungen und Hurenkinder
+\usepackage{longtable}          % Tabellen
+\usepackage{lscape}             % Querformat
+%--------------------------------------
+
+%Web
+%--------------------------------------
+\usepackage[colorlinks, 
+            linkcolor = black, 
+            citecolor = black, 
+            filecolor = black, 
+            urlcolor = blue]{hyperref}
+%--------------------------------------
+
+%Sprachen
+%--------------------------------------
+\usepackage{polyglossia}        % Verwendete Sprachen
+        \setdefaultlanguage{german}
+        \setotherlanguage[variant = ancient]{greek}
+%	\setotherlanguage[variant = modern]{latin}
+%        \setotherlanguage{hebrew}
+\usepackage{csquotes}           % Anführungszeichen an Sprache anpassen
+%--------------------------------------
+
+%Titelinformationen (einfach)
+%--------------------------------------
+\title{Zwischen Kult und Mythos\\
+Diktynna, Britomartis, Aphaia -- Eine Göttin, drei Kulte?}
+\author{Adrian Kinzig}
+\date{\today}
+%----------------------------
+
+%Literatur
+%--------------------------------------
+\usepackage[backend=biber,
+            style=verbose-trad3, 
+            mincrossrefs=1,
+            sortlocale=auto]{biblatex}
+        \addbibresource{~/Uni/standard.bib}
+%--------------------------------------
+
+%Quellen
+%--------------------------------------
+\defbibheading{quellen}
+    {\section*{Literarische Quellen}}
+\defbibheading{bildquelle}
+    {\section*{Bild- und Archäologische Quellen }}
+\defbibheading{sekundär}
+    {\section*{Literatur}}
+%--------------------------------------
+
+%Eigene Befehle
+%--------------------------------------
+    %Besondere Markierungen
+  \newcommand{\fw}[1]{\textit{#1}} %Fachwörter kursiv, /fw{x}
+
+    %Befehle für die Zeilennummerierung in Versen
+  \newcommand{\verselinks}[2]{
+          \poemlines{5}
+          \verselinenumbersleft
+          \setlength{\vrightskip}{-7cm}
+          \setverselinenums{#1}{#2}}
+
+  \newcommand{\verserechts}[2]{
+          \poemlines{5}
+          \setverselinenums{#1}{#2}}
+
+    %Befehle für Zwischenüberschrfiten
+  \newcommand{\ittitle}[1]{
+           \begin{center}
+           \textit{#1}
+           \end{center}}
+
+%--------------------------------------
+
+\begin{document}
+
+\include{inhalt/info.tex}    % Hier ist der Inhalt
+
+%\chapter{Quellen und Literaturverzeichnis}
+%\printbibliography[keyword=quelle, notkeyword=grabung, heading=quellen]
+%\printbibliography[keyword=grabung,  heading=bildquelle]
+%\printbibliography[notkeyword=quelle, notkeyword=grabung, heading=sekundär]
+
+\end{document}

@@ -1,0 +1,148 @@
+\documentclass[a4paper, 12pt]{scrarticle}
+
+\usepackage{ifxetex,fontspec}
+\setmainfont{FreeSerif}
+\defaultfontfeatures{Ligatures=TeX}
+%\usepackage{xeCJK}
+\usepackage{chronology} % Für einen Zeitstrahl
+
+
+%Titelinformationen
+%--------------------------------------
+\author{Adrian Kinzig}
+\date{\today}
+%--------------------------------------
+
+\usepackage{colortbl}
+\usepackage{longtable}
+
+\usepackage{polyglossia}
+    \setdefaultlanguage{german}
+    \setotherlanguage[variant = ancient]{greek}
+    \newfontfamily\greekfont[Script = Greek]{Aegean}
+
+	%Literatur
+	%--------------------------------------
+	\usepackage[backend=biber,
+            style=verbose-trad3, 
+            mincrossrefs=1,
+            sortlocale=auto]{biblatex}
+        \addbibresource{~/Uni/standard.bib}
+	%--------------------------------------
+
+
+\title{
+        \begin{normalsize}
+Quellenübersicht für die Hausarbeit:
+        \end{normalsize} \\
+Alexandria Eschate\\
+        \begin{normalsize}
+Motive für die Gründung der östlichsten Stadt
+        \end{normalsize}}
+
+%--------------------------
+%HIER GEHTS LOS
+%--------------------------
+
+\begin{document}
+
+% Sammlung der Quellen
+\maketitle
+
+% Legende
+	\noindent
+	Legende:\vfill
+
+	Das Symbol \textbf{--} zeigt das Fehlen der Stadt in der Quelle an,
+	\textbf{?} deutet entweder an,
+	dass die Quelle nicht vorliegt und mir daher noch nicht klar ist,
+	ob die Stadt erwähnt wird,
+	oder aber die Identität ist unsicher.
+
+	Farbe:\vfill
+	farblos                = Quelle nur gelesen/ nur aus Zusammenfassung bekannt\vfill
+	\colorbox{red}{ }      = Keine Übersetzung, aber bereits digital erfasst\vfill
+	\colorbox{orange}{ }   = Übersetzt, Quellenkritik unvollständig\vfill
+	\colorbox{yellow}{ }   = Forschungsliteratur, Übersetzung oder Edition veraltet\vfill
+	\colorbox{green}{ }    = Fertig\vfill
+
+%Beginn der Tabelle für die Autoren
+
+\begin{longtable}{lllll}
+        %Tabellenkopf, auf jeder Seite wiederholt
+	Autor & Stelle & Datierung & Stand \\
+        \hline
+\endhead
+
+	%----------------AUTOREN-GRIECHISCH-------------
+        \textbf{Griechische Autoren}&
+        &
+        &
+        &
+        \cellcolor{white}\\
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%----------------AUTOREN-LATEIN-------------
+        \textbf{Lateinische Autoren}&
+        &
+        &
+        &
+        \cellcolor{white}\\
+
+	%Curtius Rufus
+        Quintus Curtius Rufus&
+	Historiae Alexandri 7 V,27 (23) - (29) &
+        &
+        \cellcolor{white}\\
+  
+\end{longtable}
+
+
+
+
+%Beginn der Tabelle für die Inschriften%%%%%%%%%%%%%%%%
+\begin{longtable}{lllll}
+
+        %Tabellenkopf, auf jeder Seite wiederholt
+        Inschrift & Fundort & Datierung & Stand \\
+        \hline
+\endhead
+
+
+	%----------------INSCHRIFTEN------------
+        \textbf{Inschriften gesamt} &
+        &
+        &
+        \cellcolor{white}\\
+
+	%---------IEOG-------------------
+		%---------IEOG-391------------------
+		\citetitle[391]{ieog}&
+		Alexandria Eschate?&
+		328 v. Chr.&
+		\cellcolor{white} ? \\
+
+		%---------IEOG-392------------------
+		\citetitle[392]{ieog}&
+		Didyma (Milet)?&
+		306 v. Chr?&
+		\cellcolor{white} ?\\
+
+		%---------IEOG-393------------------
+		\citetitle[393]{ieog}&
+		Didyma (Milet)&
+		300/299 v. Chr.&
+		\cellcolor{white}\\
+
+		%---------IEOG-394------------------
+		\citetitle[394]{ieog}&
+		Didyma (Milet)&
+		299/298 v. Chr.&
+		\cellcolor{white}\\
+
+\end{longtable}
+
+\printbibliography
+
+\end{document}
